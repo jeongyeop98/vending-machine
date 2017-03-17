@@ -9,14 +9,14 @@ gulp.task('default', function() {
 
 // script uglify Code
 gulp.task('jsUglify', function() {
-  gulp.src('js/*.js')
+  gulp.src('src/js/*.js')
     .pipe(uglify())
     .pipe(gulp.dest('build/js'))
 })
 
 // scss Compile Code
 gulp.task('scssCompile', function() {
-  scss('scss/*.scss')
+  scss('src/scss/*.scss')
     .on('error', function(err) {
       console.error('Errorrrr!', err.message)
     })
@@ -25,6 +25,6 @@ gulp.task('scssCompile', function() {
 
 // Watch Code ( 실시간 변경 )
 gulp.task('watch', function() {
-  gulp.watch('scss/*.scss', ['scssCompile'])
-  gulp.watch('js/*.js', ['jsUglify'])
+  gulp.watch('src/scss/*.scss', ['scssCompile'])
+  gulp.watch('src/js/*.js', ['jsUglify'])
 })
