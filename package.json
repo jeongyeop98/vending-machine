@@ -1,0 +1,25 @@
+{
+  "name": "vending-machine",
+  "version": "1.0.0",
+  "description": "자동판매기(vending-machine)",
+  "main": "index.js",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-ruby-sass": "^2.1.1",
+    "gulp-uglify": "^2.1.0",
+    "gulp-util": "^3.0.8"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeongyeop98/vending-machine.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeongyeop98/vending-machine/issues"
+  },
+  "homepage": "https://github.com/jeongyeop98/vending-machine#readme"
+}
