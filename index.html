@@ -6,6 +6,31 @@
     <link rel="stylesheet" href="build/css/main.css">
   </head>
   <body>
+    <div class="vendingMachine">
+      <div class="vendingMachine__wrap">
+        <div class="vendingMachine__content">
+          <ul class="vendingMachine__list" id="list">
+          </ul>
+        </div>
+        
+        <div class="vendingMachine__footer">
+          <button class="insertMoneyBtn">100</button>
+          <button class="insertMoneyBtn">500</button>
+          <button class="insertMoneyBtn">1000</button>
+          <button class="insertMoneyBtn">5000</button>
+          <button class="insertMoneyBtn">10000</button>
+          <button id="returnMoney">환전</button>
+          <p>돈 <strong id="money"></strong></p>
+          <p>넣은 돈 <strong id="changeMoney"></strong></p>
+        </div>
+      </div>
+    </div>
+    
+    <template>
+      <li class="vendingMachine__item" id="item">
+        <button class="vendingMachine__button" id="btn"></button>
+      </li>
+    </template>
     <script type="text/javascript" src="build/js/main.js"></script>
   </body>
 </html>
