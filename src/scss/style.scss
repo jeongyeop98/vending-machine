@@ -37,7 +37,7 @@
       color: white;
     }
     
-    &--disable {
+    &:disabled {
       background-color: lightgray;
     }
   }

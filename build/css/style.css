@@ -24,7 +24,7 @@
   .vendingMachine__button:active {
     background-color: royalblue;
     color: white; }
-  .vendingMachine__button--disable {
+  .vendingMachine__button:disabled {
     background-color: lightgray; }
 .vendingMachine__footer {
   color: white; }

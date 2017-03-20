@@ -11,7 +11,8 @@ var drinks = [
   {'name' : '이프로', 'price': 800, 'quantity' : 2},
   {'name' : '파워에이드', 'price': 900, 'quantity' : 2}
 ]
-// 음료 버튼
+
+// 음료 버튼 template 기능으로 구현
 for (var i = 0; i < drinks.length; i++) {
   var content = document.querySelector('template').content
   var btn = content.getElementById('btn')
@@ -21,13 +22,13 @@ for (var i = 0; i < drinks.length; i++) {
   list.appendChild(document.importNode(content, true))
 }
 
-// button 클릭시 연산 위한 list
-var drinkList = document.querySelectorAll('.vendingMachine__item')
+// template을 사용하면 4{포도주스}만 return 되는 오류로 list를 만들어 idx를 만들어내어 calcMoney에 넘겨줌
+var drinkList = document.querySelectorAll('.vendingMachine__button')
 
 for (var j = 0; j < drinkList.length; j++) {
   drinkList[j].idx = j
   drinkList[j].addEventListener('click', function() {
-    func.calcMoney([this.idx])
+    func.calcMoney(this.idx)
   })
 }
 
@@ -57,7 +58,8 @@ var func = {
       console.log('돈을 넣어주세요')
       return false;
     }
-    if (drinks[drinkIdx].quantity == 0) {
+    if (drinks[drinkIdx].quantity === 0) {
+      drinkList[drinkIdx].disabled = 'true'
       console.log('재고가 부족합니다')
       return false;
     }
