@@ -56,17 +56,16 @@ var func = {
   calcMoney : function(drinkIdx) {
     if (drinks[drinkIdx].price > this.money) {
       console.log('돈을 넣어주세요')
-      return false;
-    }
-    if (drinks[drinkIdx].quantity === 0) {
-      drinkList[drinkIdx].disabled = 'true'
-      console.log('재고가 부족합니다')
-      return false;
+      return false
     }
     if (this.money >= drinks[drinkIdx].price) {
       console.log(drinks[drinkIdx].name)
       this.money -= drinks[drinkIdx].price
       drinks[drinkIdx].quantity -= 1
+      
+      if (drinks[drinkIdx].quantity === 0) {
+        drinkList[drinkIdx].disabled = true
+      }
       this.refresh()
     }
   },

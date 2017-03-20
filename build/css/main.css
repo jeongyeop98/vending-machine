@@ -16,7 +16,6 @@ ul, li {
   background-color: tomato; }
 .vendingMachine__content {
   width: 182px;
-  border: 1px solid #ededed;
   margin: 50px auto;
   overflow: hidden; }
 .vendingMachine__item {
@@ -35,4 +34,6 @@ ul, li {
   .vendingMachine__button:disabled {
     background-color: lightgray; }
 .vendingMachine__footer {
+  width: 200px;
+  margin: 0 auto;
   color: white; }
