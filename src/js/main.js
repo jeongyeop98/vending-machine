@@ -11,16 +11,17 @@ var drinks = [
   {'name' : '이프로', 'price': 800, 'quantity' : 2},
   {'name' : '파워에이드', 'price': 900, 'quantity' : 2}
 ]
-
+// 음료 버튼
 for (var i = 0; i < drinks.length; i++) {
   var content = document.querySelector('template').content
   var btn = content.getElementById('btn')
   
-  btn.innerHTML = drinks[i].name + '<br/>' + drinks[i].price
+  btn.innerHTML = drinks[i].name + '<br/>' + drinks[i].price +'원'
   
   list.appendChild(document.importNode(content, true))
 }
 
+// button 클릭시 연산 위한 list
 var drinkList = document.querySelectorAll('.vendingMachine__item')
 
 for (var j = 0; j < drinkList.length; j++) {
@@ -33,24 +34,31 @@ for (var j = 0; j < drinkList.length; j++) {
 var func = {
   userMoney : 10000,
   money : 0,
+  // 돈 반환
   returnMoney : function() {
     this.userMoney += this.money
     this.money = 0
     this.refresh()
   },
+  // 돈 넣기
   insertMoney : function(value) {
     if (this.userMoney >= value) {
       this.money += value
       this.userMoney -= value
       this.refresh()
     } else {
-      console.log('노머니')
+      console.log('돈이 없습니다')
       return false
     }
   },
+  // 연산
   calcMoney : function(drinkIdx) {
+    if (drinks[drinkIdx].price > this.money) {
+      console.log('돈을 넣어주세요')
+      return false;
+    }
     if (drinks[drinkIdx].quantity == 0) {
-      console.log('노재고')
+      console.log('재고가 부족합니다')
       return false;
     }
     if (this.money >= drinks[drinkIdx].price) {
@@ -60,14 +68,16 @@ var func = {
       this.refresh()
     }
   },
+  // 돈 리프레시
   refresh : function() {
     document.getElementById('money').innerHTML = this.userMoney
     document.getElementById('changeMoney').innerHTML = this.money
   }
 }
-
+// 리프레시
 func.refresh()
 
+// 돈 넣기 버튼
 var insertMoneyBtn = document.querySelectorAll('.insertMoneyBtn')
 
 for (var k = 0; k < insertMoneyBtn.length; k++) {
@@ -77,6 +87,7 @@ for (var k = 0; k < insertMoneyBtn.length; k++) {
   })
 }
 
+// 반환 버튼
 document.getElementById('returnMoney').addEventListener('click', function() {
   func.returnMoney()
 })
